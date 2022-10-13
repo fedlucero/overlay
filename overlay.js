@@ -2,7 +2,7 @@ var canvas = document.getElementById('canvas');
 var ctx = canvas.getContext('2d');
 
 function random(min, max) {
-  return Math.floor((fxrand() * (max - min + 1)) + min);
+  return Math.floor((Math.random() * (max - min + 1)) + min);
 }
 
 
@@ -56,7 +56,7 @@ const colors36 = ["#d3e6be"]
 
 
 function randomFromList(items){
-    return items[Math.floor(fxrand()*items.length)];
+    return items[Math.floor(Math.random()*items.length)];
     }
 
 
@@ -101,18 +101,21 @@ o = random(0.4,0.8)
 xs = random(100,900)
 ys  = random(50,300)
 tams = random(30,150)
-def = fxrand()
-// drawBackground()
-fxpreview() 
+def = Math.random()
 
 
+const botonBorrar = document.getElementById("reset");
+botonBorrar.addEventListener("click", limpiarCanvas);
+function limpiarCanvas() {
+   ctx.clearRect(0, 0, canvas.width, canvas.height);
+}
 
 
+generate()
 
+function generate(){
 
-
-
-if (fxrand()<0.5){
+if (Math.random()<0.5){
   createWater(colorAgua, 0.9, 2, h,a);
 createWater(colorAgua, 0.9, 2, i,b);
 createWater(colorAgua, 0.9, 2,j,c);
@@ -154,15 +157,15 @@ function createSun() {
     var	maxHeight = 1000;
   
     var x,
-      height = fxrand() * maxHeight,
-      slope = (fxrand() * saw) * 2 - saw;
+      height = Math.random() * maxHeight,
+      slope = (Math.random() * saw) * 2 - saw;
   
 
   
     for (x = 0; x < canvas.width; x++) {
     
       height += slope * 0.5;
-      slope += (fxrand() * hard) * 2 - hard;
+      slope += (Math.random() * hard) * 2 - hard;
   
       if (slope > saw) {
         slope = saw;
@@ -217,12 +220,12 @@ function createSun() {
   
     var x,
       height = 1000 ,
-      slope = (fxrand() * saw) * 2 - saw;
+      slope = (Math.random() * saw) * 2 - saw;
   
     for (x = 0; x < canvas.width; x++) {
       
       height += slope * 0.09;
-      slope += (fxrand() * hard) * 2 - hard;
+      slope += (Math.random() * hard) * 2 - hard;
   
       if (slope > saw) {
         slope = saw;
@@ -323,13 +326,13 @@ function createSun() {
     var	maxHeight = 1000;
   
     var x,
-      height = fxrand() * maxHeight,
-      slope = (fxrand() * saw) * 2 - saw;
+      height = Math.random() * maxHeight,
+      slope = (Math.random() * saw) * 2 - saw;
   
     for (x = 0; x < canvas.width; x++) {
     
       height += slope * 0.5;
-      slope += (fxrand() * hard) * 2 - hard;
+      slope += (Math.random() * hard) * 2 - hard;
   
       if (slope > saw) {
         slope = saw;
@@ -360,7 +363,7 @@ function createSun() {
 
     }
   }
-  
+}
   
   function createWater(color, filling, saw, hard, noise) {
   
@@ -373,12 +376,12 @@ function createSun() {
   
     var x,
       height = 1000 ,
-      slope = (fxrand() * saw) * 2 - saw;
+      slope = (Math.random() * saw) * 2 - saw;
   
     for (x = 0; x < canvas.width; x++) {
       
       height += slope * 0.09;
-      slope += (fxrand() * hard) * 2 - hard;
+      slope += (Math.random() * hard) * 2 - hard;
   
       if (slope > saw) {
         slope = saw;
